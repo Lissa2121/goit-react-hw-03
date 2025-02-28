@@ -1,13 +1,13 @@
-import './SearchBox.module.css';
+import css from './SearchBox.module.css';
 
 const SearchBox = ({ value, onChange }) => {
   return (
     <input
       type="text"
-      placeholder="Search contacts..."
+      placeholder="Find contact"
       value={value}
       onChange={onChange}
-      className="search-box"
+      className={css.searchBox}
     />
   );
 };

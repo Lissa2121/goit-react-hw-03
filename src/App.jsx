@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import ContactList from './components/ContactList/ContactList';
 import SearchBox from './components/SearchBox/SearchBox';
 import ContactForm from './components/ContactForm/ContactForm';
-import Contact from './components/Contact/Contact';
+// import Contact from './components/Contact/Contact';
 import { nanoid } from 'nanoid';
+import css from './App.module.css';
 
 const App = () => {
   const [contacts, setContacts] = useState(() => {
@@ -40,10 +41,10 @@ const App = () => {
   );
 
   return (
-    <div>
-       <h1>Phonebook</h1>
-      <SearchBox value={filter} onChange={handleSearchChange} />
+    <div className={css.container}>
+      <h1>Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
+      <SearchBox value={filter} onChange={handleSearchChange} />
       <ContactList contacts={filteredContacts} onDeleteContact={handleDeleteContact} />
     </div>
   );

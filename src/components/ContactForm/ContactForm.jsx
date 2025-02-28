@@ -1,3 +1,4 @@
+import css from './ContactForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -6,11 +7,11 @@ const ContactForm = ({ onAddContact }) => {
     name: Yup.string()
       .min(3, 'Minimum 3 characters')
       .max(50, 'Maximum 50 characters')
-      .required('Required'),
+      .required('Fill in the field'),
     number: Yup.string()
       .min(3, 'Minimum 3 characters')
       .max(50, 'Maximum 50 characters')
-      .required('Required')
+      .required('Fill in the field')
   });
 
   return (
@@ -24,17 +25,17 @@ const ContactForm = ({ onAddContact }) => {
     >
       {() => (
         <Form>
-          <div>
-            <label htmlFor="name">Name</label>
-            <Field name="name" type="text" />
+          <div className={css.form}>
+            <label className={css.label} htmlFor="name">Name</label>
+            <Field className={css.field} name="name" type="text" />
             <ErrorMessage name="name" />
           </div>
-          <div>
-            <label htmlFor="number">Number</label>
-            <Field name="number" type="text" />
+          <div className={css.form}>
+            <label className={css.label} htmlFor="number">Number</label>
+            <Field className={css.field} name="number" type="text" />
             <ErrorMessage name="number" />
           </div>
-          <button type="submit">Add Contact</button>
+          <button className={css.button} type="submit">Add Contact</button>
         </Form>
       )}
     </Formik>
